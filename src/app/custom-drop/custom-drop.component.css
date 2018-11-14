@@ -1,0 +1,21 @@
+* {
+    padding: 0; 
+    margin: 0; 
+}
+.dropdown-container {
+    position: absolute; 
+    top: 0; 
+    right: 0;
+    background: yellow; 
+    z-index: 10; 
+    font-weight: 500;
+    font-size: 14px;
+}
+
+ul {
+    list-style: none; 
+}
+
+li {
+    padding: 8px 10px; 
+}

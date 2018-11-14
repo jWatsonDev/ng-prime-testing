@@ -1,0 +1,106 @@
+<!--
+  <ul>
+    <li *ngFor="let d of _data">
+      {{d.id}} -> {{d.title}}<br>
+      <small>{{d.body}}</small>
+    </li>
+  </ul>
+-->
+<!-- <hr />
+<h3>Table</h3>
+<h4>Sortable with pagination...</h4>
+<p-table [columns]="cols" [value]="_data" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ col.header }}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+        <p-header>
+          <p-dropdown
+            [options]="sortOptions"
+            [(ngModel)]="sortKey"
+            placeholder="Sort By"
+            (onChange)="onSortChange($event)"
+            [autoWidth]="false"
+            [style]="{ 'min-width': '15em' }"
+          ></p-dropdown>
+        </p-header>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-d let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">{{ d[col.field] }}</td>
+    </tr>
+  </ng-template>
+</p-table> -->
+
+  <h3>Table</h3>
+  <h4>Sortable with pagination...</h4>
+  <p-table [columns]="cols" [value]="_data" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field" [style.position]="relative">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+                
+                <custom-drop [showDropDown]="showMenu"></custom-drop>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-d let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{d[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+
+
+<h4>Another...not sorted...</h4>
+<p-table [value]="_data" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-d>
+    <tr>
+      <td>{{ d.id }}</td>
+      <td>{{ d.title }}</td>
+      <td>
+        <small>{{ d.body }}</small>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<hr />
+<h3>Paginator</h3>
+<p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
+
+<hr />
+<h3>Accordion</h3>
+<p-accordion>
+  <p-accordionTab header="Header 1" [selected]="true">
+    Content 1
+  </p-accordionTab>
+  <p-accordionTab header="Header 2"> Content 2 </p-accordionTab>
+  <p-accordionTab header="Header 3"> Content 3 </p-accordionTab>
+</p-accordion>
+
+<hr />
+<h3>Buttons</h3>
+<button pButton type="button" icon="pi pi-check" iconPos="left"></button>
+<p-button label="Click" icon="fa fa-check" iconPos="left"></p-button>
+
+<hr />
+<h3>Panel</h3>
+<p-panel [toggleable]="true" [transitionOptions]="'500ms'">
+  <p-header> Header content here </p-header>
+  Body Content
+  <p-footer> Footer content here </p-footer>
+</p-panel>

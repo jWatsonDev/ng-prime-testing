@@ -1,0 +1,9 @@
+
+/*** ui-grid color scheme ***/
+tr:nth-child(even) { background: #F3F3F3 !important; }
+
+tr:nth-child(odd) { background: #FDFDFD !important; }
+
+tr:hover { background: #D5EAEE !important; }
+
+th { position: relative !important; }
