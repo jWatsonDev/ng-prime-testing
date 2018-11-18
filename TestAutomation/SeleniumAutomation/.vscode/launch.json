@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SeleniumAutomation",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopOnEntry": false,
+            "mainClass": "com.alexdclark.com.SeleniumAutomation",
+            "args": "",
+            "projectName": "SeleniumAutomation"
+        }
+    ]
+}
