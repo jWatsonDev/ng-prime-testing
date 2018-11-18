@@ -9,12 +9,18 @@ import { DataService } from '../data.service';
 export class PrimeComponent implements OnInit {
   private _data: any[];
   cols: any[];
-  sortOptions: any[];
-  showMenu: boolean = false; 
-
- 
 
   constructor(private _dataService: DataService) { }
+
+  hideColumn(e) {
+    console.log('Hiding...parent');
+    //e.stopPropagation();
+  }
+
+  onNotify(hideCol: boolean, idx: number) {
+    console.log('Parent component: event emitted. Hiding...');
+    this.cols[idx].display = hideCol; 
+  }
 
   ngOnInit() {
     this._dataService.getData()
@@ -24,15 +30,9 @@ export class PrimeComponent implements OnInit {
     }, error => console.log(error));
 
     this.cols = [
-      { field: 'id', header: 'id' },
-      { field: 'title', header: 'title' },
-      { field: 'body', header: 'body' }
-    ];
-
-    this.sortOptions = [
-      {label: 'test1', value: 't1'},
-      {label: 'test2', value: '!t1'},
-      {label: 'test3', value: 't3'}
+      { field: 'id', header: 'id', display: true },
+      { field: 'title', header: 'title', display: true },
+      { field: 'body', header: 'body', display: true }
     ];
   }
 

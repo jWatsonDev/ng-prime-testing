@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule }   from '@angular/forms';
 import { PrimeComponent } from './prime/prime.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccordionModule} from 'primeng/accordion';
@@ -13,6 +14,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import {TableModule} from 'primeng/table';
 import { BlahdirDirective } from './blahdir.directive';
 import { CustomDropComponent } from './custom-drop/custom-drop.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { CustomDropComponent } from './custom-drop/custom-drop.component';
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AccordionModule,

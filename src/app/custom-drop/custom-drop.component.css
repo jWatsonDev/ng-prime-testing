@@ -1,15 +1,24 @@
+/*** ui-grid color scheme ***/
+/* tr:nth-child(even) { background: #F3F3F3 !important; }
+
+tr:nth-child(odd) { background: #FDFDFD !important; }
+
+tr:hover { background: #D5EAEE !important; } */
+
+
 * {
     padding: 0; 
     margin: 0; 
 }
 .dropdown-container {
     position: absolute; 
-    top: 0; 
-    right: 0;
-    background: yellow; 
+    top: 37px; 
+    right: -1px;
+    background: #FDFDFD; 
     z-index: 10; 
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
+    color: #000;
 }
 
 ul {
@@ -17,5 +26,28 @@ ul {
 }
 
 li {
+    border: 1px solid lightgray;
+    border-top: none;
+    border-bottom: 1px solid lightgray;
+    position: relative;
+}
+li:first-child {
+    border-top: 1px solid lightgray; 
+}
+
+.fa-float {
+    float: left; 
+    padding-top: 2px;
+}
+
+li > div {
     padding: 8px 10px; 
+}
+
+.arrow-custom {
+    padding: 10px; 
+    position: absolute;
+    right: 0; 
+    top: 0;
+    z-index: 3;
 }
