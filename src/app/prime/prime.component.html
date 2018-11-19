@@ -1,68 +1,42 @@
-<!--
-  <ul>
-    <li *ngFor="let d of _data">
-      {{d.id}} -> {{d.title}}<br>
-      <small>{{d.body}}</small>
-    </li>
-  </ul>
--->
-<!-- <hr />
 <h3>Table</h3>
 <h4>Sortable with pagination...</h4>
-<p-table [columns]="cols" [value]="_data" [paginator]="true" [rows]="10">
+<p-table
+  [columns]="cols"
+  [value]="_data"
+  [paginator]="true"
+  [rows]="10"
+  [sortField]="_sortField"
+  [sortOrder]="_sortOrder"
+>
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-        {{ col.header }}
-        <p-sortIcon [field]="col.field"></p-sortIcon>
-        <p-header>
-          <p-dropdown
-            [options]="sortOptions"
-            [(ngModel)]="sortKey"
-            placeholder="Sort By"
-            (onChange)="onSortChange($event)"
-            [autoWidth]="false"
-            [style]="{ 'min-width': '15em' }"
-          ></p-dropdown>
-        </p-header>
-      </th>
+      <ng-container *ngFor="let col of columns; let i = index">
+        <th
+          *ngIf="col.display"
+          [pSortableColumn]="col.field"
+          [style.position]="relative"
+          [id]="col.field"
+        >
+          {{ col.header }}
+          <p-sortIcon [field]="col.field"></p-sortIcon>
+
+          <app-custom-drop
+            [showCol]="showColumn"
+            (notify)="onNotify($event, i)"
+            (sortNotify)="onSortNotify($event, col.field)"
+          ></app-custom-drop>
+        </th>
+      </ng-container>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-d let-columns="columns">
     <tr>
-      <td *ngFor="let col of columns">{{ d[col.field] }}</td>
+      <ng-container *ngFor="let col of columns; let i = index">
+        <td *ngIf="col.display">{{ d[col.field] }}</td>
+      </ng-container>
     </tr>
   </ng-template>
-</p-table> -->
-
-  <h3>Table</h3>
-  <h4>Sortable with pagination...</h4>
-  <p-table [columns]="cols" [value]="_data" [paginator]="true" [rows]="10">
-      
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-            <ng-container *ngFor="let col of columns; let i = index">
-            <th *ngIf="col.display" [pSortableColumn]="col.field" [style.position]="relative" [id]="col.field">
-                {{col.header}} 
-                <p-sortIcon [field]="col.field"></p-sortIcon>
-                
-                <custom-drop [showCol]="showColumn" (notify)="onNotify($event, i)"></custom-drop>
-
-            </th>
-            </ng-container>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-d let-columns="columns">
-        <tr>
-            <ng-container *ngFor="let col of columns; let i = index">
-            <td *ngIf="col.display">
-                {{d[col.field]}}
-            </td>
-            </ng-container>
-        </tr>
-    </ng-template>
-  </p-table>
-
+</p-table>
 
 <h4>Another...not sorted...</h4>
 <p-table [value]="_data" [paginator]="true" [rows]="10">

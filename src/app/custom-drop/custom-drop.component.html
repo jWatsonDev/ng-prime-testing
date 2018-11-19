@@ -1,8 +1,8 @@
 
 <div *ngIf="showDropDown" class="dropdown-container">
   <ul>
-    <li><div><i class="fa fa-sort-amount-asc fa-float"></i> &nbsp;&nbsp;Sort Ascending</div></li>
-    <li><div><i class="fa fa-sort-amount-desc fa-float"></i> &nbsp;&nbsp;Sort Descending</div></li>
+    <li (click)="sortingBy($event, 1)"><div><i class="fa fa-sort-amount-asc fa-float"></i> &nbsp;&nbsp;Sort Ascending</div></li>
+    <li (click)="sortingBy($event, -1)"><div><i class="fa fa-sort-amount-desc fa-float"></i> &nbsp;&nbsp;Sort Descending</div></li>
     <li (click)="hideColumn($event, idx)"><div><i class="fa fa-times fa-float"></i> Hide Column</div></li>
     {{ showCol }}
   </ul>
@@ -10,6 +10,3 @@
 
 <span (click)="toggleDropdown($event)"><i class="fa fa-arrow-down arrow-custom" aria-hidden="true"></i></span>
 
-<!-- <div *ngIf="showCol">
-  something to hide
-</div> -->
