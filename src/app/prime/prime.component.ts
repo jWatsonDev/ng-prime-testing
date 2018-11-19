@@ -7,12 +7,12 @@ import { DataService } from '../data.service';
   styleUrls: ['./prime.component.css']
 })
 export class PrimeComponent implements OnInit {
-  private _data: any[];
-  cols: any[];
-  private _sortField: string;
-  private _sortOrder: number;
+  public _data: any[];
+  public cols: any[];
+  public _sortField: string;
+  public _sortOrder: number;
 
-  constructor(private _dataService: DataService) { }
+  constructor(public _dataService: DataService) { }
 
   onNotify(hideCol: boolean, idx: number) {
     this.cols[idx].display = hideCol;
