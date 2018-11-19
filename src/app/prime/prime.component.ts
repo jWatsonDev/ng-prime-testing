@@ -11,6 +11,7 @@ export class PrimeComponent implements OnInit {
   public cols: any[];
   public _sortField: string;
   public _sortOrder: number;
+  public selectedColumns: any[];
 
   constructor(public _dataService: DataService) { }
 
@@ -38,6 +39,7 @@ export class PrimeComponent implements OnInit {
 
     this._sortField = 'id';
     this._sortOrder = 1;
+    this.selectedColumns = this.cols;
   }
 
 

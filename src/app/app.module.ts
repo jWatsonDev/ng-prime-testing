@@ -15,6 +15,7 @@ import {TableModule} from 'primeng/table';
 import { BlahdirDirective } from './blahdir.directive';
 import { CustomDropComponent } from './custom-drop/custom-drop.component';
 import { CommonModule } from '@angular/common';
+import { MultiSelectModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CommonModule } from '@angular/common';
     ButtonModule,
     PanelModule,
     PaginatorModule,
-    TableModule
+    TableModule, 
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

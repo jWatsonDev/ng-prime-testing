@@ -1,37 +1,43 @@
 <h3>Table</h3>
 <h4>Sortable with pagination...</h4>
 <p-table
-  [columns]="cols"
+  [columns]="selectedColumns"
   [value]="_data"
   [paginator]="true"
   [rows]="10"
   [sortField]="_sortField"
-  [sortOrder]="_sortOrder"
->
+  [sortOrder]="_sortOrder">
+  <ng-template pTemplate="caption">
+    <div style="text-align:left">
+      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+        optionLabel="header"
+        selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}"
+        defaultLabel="Choose Columns"></p-multiSelect>
+    </div>
+  </ng-template>
+
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <ng-container *ngFor="let col of columns; let i = index">
+      <ng-container *ngFor="let col of columns; let i= index">
         <th
           *ngIf="col.display"
           [pSortableColumn]="col.field"
           [style.position]="relative"
-          [id]="col.field"
-        >
+          [id]="col.field">
           {{ col.header }}
           <p-sortIcon [field]="col.field"></p-sortIcon>
 
           <app-custom-drop
             [showCol]="showColumn"
             (notify)="onNotify($event, i)"
-            (sortNotify)="onSortNotify($event, col.field)"
-          ></app-custom-drop>
+            (sortNotify)="onSortNotify($event, col.field)"></app-custom-drop>
         </th>
       </ng-container>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-d let-columns="columns">
     <tr>
-      <ng-container *ngFor="let col of columns; let i = index">
+      <ng-container *ngFor="let col of columns; let i= index">
         <td *ngIf="col.display">{{ d[col.field] }}</td>
       </ng-container>
     </tr>
