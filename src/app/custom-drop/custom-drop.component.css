@@ -1,9 +1,4 @@
-/*** ui-grid color scheme ***/
-/* tr:nth-child(even) { background: #F3F3F3 !important; }
 
-tr:nth-child(odd) { background: #FDFDFD !important; }
-
-tr:hover { background: #D5EAEE !important; } */
 
 
 * {
@@ -12,7 +7,7 @@ tr:hover { background: #D5EAEE !important; } */
 }
 .dropdown-container {
     position: absolute; 
-    top: 37px; 
+    top: 36px; 
     right: -1px;
     background: #FDFDFD; 
     z-index: 10; 
@@ -44,10 +39,14 @@ li > div {
     padding: 8px 10px; 
 }
 
-.arrow-custom {
+.angle-custom {
     padding: 10px; 
     position: absolute;
     right: 0; 
     top: 0;
     z-index: 3;
+}
+
+li:hover {
+    background: #9cb2b6;
 }
