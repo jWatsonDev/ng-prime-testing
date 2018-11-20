@@ -13,7 +13,7 @@ export class PrimeComponent implements OnInit {
   public sortOrder: number;
   public selectedColumns: any[];
 
-  constructor(public _dataService: DataService) { }
+  constructor(public dataService: DataService) { }
 
   onNotify(hideCol: boolean, idx: number) {
     this.cols[idx].display = hideCol;
@@ -25,7 +25,7 @@ export class PrimeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._dataService.getData()
+    this.dataService.getData()
     .subscribe(data => {
       this.data = data;
       // console.log(data);
