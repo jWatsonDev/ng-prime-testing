@@ -3,3 +3,28 @@
     padding: 15px 0; 
 }
 
+body .ui-table .ui-sortable-column.ui-state-highlight {
+    background-color: #F3F3F3 !important;
+}
+
+body .ui-table .ui-sortable-column.ui-state-highlight a, body .ui-table .ui-sortable-column.ui-state-highlight a:hover {
+    color: #848484;
+}
+
+body .ui-table .ui-table-thead > tr > th,
+body .ui-table .ui-table-tbody > tr,
+body .ui-multiselect .ui-multiselect-label {
+    color: #2c3e50 !important;
+}
+
+body .ui-table .ui-table-tbody > tr:nth-of-type(even) {
+    background: #F3F3F3 !important;
+}
+
+body .ui-table .ui-table-tbody > tr:nth-of-type(odd) {
+    background: #FDFDFD !important;
+}
+
+body .ui-table .ui-table-tbody > tr:hover {
+    background: #D5EAEE !important;
+}

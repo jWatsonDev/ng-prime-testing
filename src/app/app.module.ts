@@ -9,10 +9,9 @@ import {AccordionModule} from 'primeng/accordion';
 import {CardModule, Card} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import {PaginatorModule} from 'primeng/paginator';
 import {TableModule} from 'primeng/table';
-import { BlahdirDirective } from './blahdir.directive';
 import { CustomDropComponent } from './custom-drop/custom-drop.component';
 import { CommonModule } from '@angular/common';
 import { MultiSelectModule } from 'primeng/primeng';
@@ -21,7 +20,6 @@ import { MultiSelectModule } from 'primeng/primeng';
   declarations: [
     AppComponent,
     PrimeComponent,
-    BlahdirDirective,
     CustomDropComponent
   ],
   imports: [
@@ -36,7 +34,7 @@ import { MultiSelectModule } from 'primeng/primeng';
     ButtonModule,
     PanelModule,
     PaginatorModule,
-    TableModule, 
+    TableModule,
     MultiSelectModule
   ],
   providers: [],
