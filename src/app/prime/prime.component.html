@@ -2,11 +2,12 @@
 <h4>Sortable with pagination...</h4>
 <p-table
   [columns]="selectedColumns"
-  [value]="_data"
+  [value]="data"
   [paginator]="true"
   [rows]="10"
-  [sortField]="_sortField"
-  [sortOrder]="_sortOrder">
+  [sortField]="sortField"
+  [sortOrder]="sortOrder">
+  
   <ng-template pTemplate="caption">
     <div style="text-align:left">
       <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
@@ -15,6 +16,8 @@
         defaultLabel="Choose Columns"></p-multiSelect>
     </div>
   </ng-template>
+
+  
 
   <ng-template pTemplate="header" let-columns>
     <tr>
@@ -40,8 +43,16 @@
       <ng-container *ngFor="let col of columns; let i= index">
         <td *ngIf="col.display">{{ d[col.field] }}</td>
       </ng-container>
+      
     </tr>
+    <div style="position: absolute; border: 1px solid red; z-index: 55; bottom: 0; right: 0;">
+      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+        optionLabel="header"
+        selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}"
+        defaultLabel="Choose Columns"></p-multiSelect>
+    </div>
   </ng-template>
+    
 </p-table>
 
 <h4>Another...not sorted...</h4>
