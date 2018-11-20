@@ -8,3 +8,10 @@ tr:hover { background: #D5EAEE !important; }
 
 th { position: relative !important; }
 
+.bottom-select {
+    position: absolute; 
+    bottom: 12px; left: 12px;
+    font-weight: bold;
+}
+
+
