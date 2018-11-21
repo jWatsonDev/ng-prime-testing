@@ -1,9 +1,9 @@
 <h3>Table</h3>
 <button (click)="generatePdf()">PDF</button>
 <h4>Sortable with pagination...</h4>
-<div>
-  <p-table #dt [columns]="selectedColumns" [value]="data" [paginator]="true" [rows]="10"
-    [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple" [(selection)]="selectedItems" [metaKeySelection]="false">
+<div class="fred" (click)="test()">
+  <p-table #dt [columns]="selectedColumns" [value]="data" [(selection)]=selectedItems [paginator]="true" [rows]="10"
+    [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple" [metaKeySelection]="false">
 
     <ng-template pTemplate="caption">
       <div style="text-align:left">
@@ -11,9 +11,6 @@
         <div class="csv-export">
           <button class="button" button type="button" pButton icon="fa-file-o" iconPos="left" label="Export All Data"
             (click)="dt.exportCSV()" style="float:right"> </button>
-
-          <button class="button" button type="button" pButton icon="fa-file" iconPos="left" label="Export Selected Data "
-            (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
         </div>
         <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected"
           [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
