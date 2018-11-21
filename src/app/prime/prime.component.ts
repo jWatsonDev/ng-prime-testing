@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class PrimeComponent implements OnInit {
   public data: any[];
   public cols: any[];
+  public selectedItems: any[];
   public sortField: string;
   public sortOrder: number;
   public selectedColumns: any[];
@@ -26,10 +27,11 @@ export class PrimeComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getData()
-    .subscribe(data => {
-      this.data = data;
-      // console.log(data);
-    }, error => console.log(error));
+      .subscribe(data => {
+        this.data = data;
+        // console.log(data);
+
+      }, error => console.log(error));
 
     this.cols = [
       { field: 'id', header: 'id', display: true },

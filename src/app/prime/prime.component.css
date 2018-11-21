@@ -1,16 +1,27 @@
-
 /*** ui-grid color scheme ***/
-tr:nth-child(even) { background: #F3F3F3 !important; }
-
-tr:nth-child(odd) { background: #FDFDFD !important; }
-
-tr:hover { background: #D5EAEE !important; }
-
-th { position: relative !important; }
-
-.bottom-select {
-    position: absolute; 
-    bottom: 12px; left: 12px;
-    font-weight: bold;
+tr:nth-child(even) {
+  background: #F3F3F3 !important;
 }
 
+tr:nth-child(odd) {
+  background: #FDFDFD !important;
+}
+
+tr:hover {
+  background: #D5EAEE !important;
+}
+
+th {
+  position: relative !important;
+}
+
+.button {
+  margin: 4px 2px;
+}
+
+.bottom-select {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-weight: bold;
+}

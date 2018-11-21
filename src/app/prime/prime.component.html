@@ -1,57 +1,49 @@
 <h3>Table</h3>
 <h4>Sortable with pagination...</h4>
 <div class="fred">
-<p-table
-  [columns]="selectedColumns"
-  [value]="data"
-  [paginator]="true"
-  [rows]="10"
-  [sortField]="sortField"
-  [sortOrder]="sortOrder">
-  
-  <ng-template pTemplate="caption">
-    <div style="text-align:left">
-      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
-        optionLabel="header"
-        selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}"
-        defaultLabel="Choose Columns"></p-multiSelect>
-    </div>
-  </ng-template>
+  <p-table #dt [columns]="selectedColumns" [value]="data" [paginator]="true" [(selection)]="selectedItems" [rows]="10"
+    [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple" [metaKeySelection]="false">
 
-  <ng-template pTemplate="header" let-columns>
-    <tr>
-      <ng-container *ngFor="let col of columns; let i= index">
-        <th
-          *ngIf="col.display"
-          [pSortableColumn]="col.field"
-          [style.position]="relative"
-          [id]="col.field">
-          {{ col.header | titlecase }}
-          <p-sortIcon [field]="col.field"></p-sortIcon>
+    <ng-template pTemplate="caption">
+      <div style="text-align:left">
 
-          <app-custom-drop
-            [showCol]="showColumn"
-            (notify)="onNotify($event, i)"
-            (sortNotify)="onSortNotify($event, col.field)"></app-custom-drop>
-        </th>
-      </ng-container>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-d let-columns="columns" class="paginator-custom">
-    <tr>
-      <ng-container *ngFor="let col of columns; let i= index">
-        <td *ngIf="col.display">{{ d[col.field] }}</td>
-      </ng-container>
-      
-    </tr>
-    <div class="bottom-select">
-      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
-        optionLabel="header"
-        selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}"
-        defaultLabel="Choose Columns"></p-multiSelect>
-    </div>
-  </ng-template>
-</p-table>
+        <div class="csv-export">
+          <button class="button" button type="button" pButton icon="fa-file-o" iconPos="left" label="Export All Data"
+            (click)="dt.exportCSV()" style="float:right"> </button>
+
+          <button class="button" button type="button" pButton icon="fa-file" iconPos="left" label="Export Selected Data "
+            (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
+        </div>
+        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected"
+          [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <ng-container *ngFor="let col of columns; let i= index">
+          <th *ngIf="col.display" [pSortableColumn]="col.field" [style.position]="relative" [id]="col.field">
+            {{ col.header | titlecase }}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+
+            <app-custom-drop [showCol]="showColumn" (notify)="onNotify($event, i)" (sortNotify)="onSortNotify($event, col.field)"></app-custom-drop>
+          </th>
+        </ng-container>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-d let-columns="columns" class="paginator-custom">
+      <tr>
+        <ng-container *ngFor="let col of columns; let i= index">
+          <td *ngIf="col.display">{{ d[col.field] }}</td>
+        </ng-container>
+
+      </tr>
+      <div class="bottom-select">
+        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected"
+          [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
+      </div>
+    </ng-template>
+  </p-table>
 </div>
 
 <h4>Another...not sorted...</h4>
