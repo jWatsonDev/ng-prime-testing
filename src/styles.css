@@ -17,8 +17,8 @@ body .ui-table .ui-sortable-column.ui-state-highlight a, body .ui-table .ui-sort
     color: #848484;
 }
 
-body .ui-table .ui-table-thead > tr > th,
 body .ui-table .ui-table-tbody > tr,
+body .ui-table .ui-table-thead > tr > th,
 body .ui-multiselect .ui-multiselect-label {
     color: #2c3e50 !important;
 }

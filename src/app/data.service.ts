@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {tap, catchError} from 'rxjs/operators';
 
@@ -13,10 +13,7 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   getData(): Observable<any[]> {
-    return this._http.get<any[]>(this._dataUrl).pipe(
-      //tap(data => console.log('All: ' + JSON.stringify(data))),
-      //catchError(this.handleError('getData', []))
-    );
+    return this._http.get<any[]>(this._dataUrl).pipe();
   }
 
 }
