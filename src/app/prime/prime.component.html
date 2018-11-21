@@ -1,8 +1,9 @@
 <h3>Table</h3>
+<button (click)="generatePdf()">PDF</button>
 <h4>Sortable with pagination...</h4>
-<div class="fred">
-  <p-table #dt [columns]="selectedColumns" [value]="data" [paginator]="true" [(selection)]="selectedItems" [rows]="10"
-    [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple" [metaKeySelection]="false">
+<div>
+  <p-table #dt [columns]="selectedColumns" [value]="data" [paginator]="true" [rows]="10"
+    [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple" [(selection)]="selectedItems" [metaKeySelection]="false">
 
     <ng-template pTemplate="caption">
       <div style="text-align:left">
