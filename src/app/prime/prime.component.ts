@@ -25,13 +25,17 @@ export class PrimeComponent implements OnInit {
     this.sortField = sortBy;
   }
 
+  test() {
+    console.log(this.data);
+  }
+
   ngOnInit() {
     this.dataService.getData()
       .subscribe(data => {
         this.data = data;
         // console.log(data);
-
       }, error => console.log(error));
+
 
     this.cols = [
       { field: 'id', header: 'id', display: true },
