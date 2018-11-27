@@ -29,7 +29,7 @@ export class PrimeComponent implements OnInit {
   }
 
   generatePdf() {
-    var columns = ["ID", "Title", "Body"];
+    var columns = ["Id", "Title", "Body"];
     var rows = [];
 
     for (const key of Object.keys(this.data)) {
@@ -37,7 +37,12 @@ export class PrimeComponent implements OnInit {
     }
     console.log(rows);
     var doc = new jsPDF();
-    doc.autoTable(columns, rows);
+    doc.autoTable(columns, rows, {
+      margin: { top: 20, horizontal: 10, width: 20 },
+      columnStyles: {
+        0: { columnWidth: 20 }, 1: { columnWidth: 85 }, 2: { columnWidth: 85 },
+      }
+    });
     doc.save('Test.pdf');
   }
 
