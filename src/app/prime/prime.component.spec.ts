@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { } from 'jasmine';
 
 import { PrimeComponent } from './prime.component';
 
@@ -8,9 +9,9 @@ describe('PrimeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrimeComponent ]
+      declarations: [PrimeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

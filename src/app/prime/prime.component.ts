@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import * as jsPDF from 'jspdf'
 
 declare var jsPDF: any;
 
@@ -27,8 +28,8 @@ export class PrimeComponent implements OnInit {
     this.sortField = sortBy;
   }
 
- generatePdf() {
-    var columns = ["ID", "name", "blah"];
+  generatePdf() {
+    var columns = ["ID", "Title", "Body"];
     var rows = [];
 
     for (const key of Object.keys(this.data)) {
@@ -38,13 +39,13 @@ export class PrimeComponent implements OnInit {
     var doc = new jsPDF();
     doc.autoTable(columns, rows);
     doc.save('Test.pdf');
-}
+  }
 
-  jsonToArray(json){
+  jsonToArray(json) {
     let result = [];
     let keys = Object.keys(json);
-    keys.forEach(function(key){
-        result.push(json[key]);
+    keys.forEach(function (key) {
+      result.push(json[key]);
     });
     return result.splice(1, result.length - 1);
   }

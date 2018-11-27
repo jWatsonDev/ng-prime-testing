@@ -1,5 +1,7 @@
 <h3>Table</h3>
 <button (click)="generatePdf()">PDF</button>
+<button class="button" (click)="dt.exportCSV()" style="float:left">CSV
+</button>
 <h4>Sortable with pagination...</h4>
 <div class="fred" (click)="test()">
   <p-table #dt [columns]="selectedColumns" [value]="data" [(selection)]=selectedItems [paginator]="true" [rows]="10"
@@ -9,8 +11,8 @@
       <div style="text-align:left">
 
         <div class="csv-export">
-          <button class="button" button type="button" pButton icon="fa-file-o" iconPos="left" label="Export All Data"
-            (click)="dt.exportCSV()" style="float:right"> </button>
+          <button class="button" button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()"
+            style="float:right"> </button>
         </div>
         <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected"
           [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
