@@ -28,19 +28,45 @@ export class PrimeComponent implements OnInit {
     this.sortField = sortBy;
   }
 
-  generatePdf() {
-    var columns = ["Id", "Title", "Body"];
-    var rows = [];
+  // generatePdf() {
+  //   var columns = ['UserId', 'Id', 'Title', 'Body'];
+  //   let colSel = ['userId', 'title'];
+  //   var rows = [];
+  //   //this.updateSelectedItems(this.data, 'blah');
+  //   for (let key of Object.keys(this.data)) {
+  //     let tempRow = this.data[key];
+  //     console.log(tempRow);
+  //     if (this.data[key].hasOwnProperty('id')) {
+  //       console.log('hmm');
+  //       delete tempRow.id;
+  //     }
+  //     console.log(tempRow); 
+  //     rows.push(this.jsonToArray(this.data[key]));
+  //   }
 
-    for (const key of Object.keys(this.data)) {
+  //   var doc = new jsPDF();
+  //   doc.autoTable(columns, rows, {
+  //     margin: { top: 20, horizontal: 10, width: 20 },
+  //     columnStyles: {
+  //       0: { columnWidth: 15 }, 1: { columnWidth: 15 }, 2: { columnWidth: 55 }, 3: { columnWidth: 100 }
+  //     }
+  //   });
+  //   //doc.save('Test.pdf');
+  // }
+
+  generatePdf() {
+    var columns = ['UserId', 'Id', 'Title', 'Body'];
+    var rows = [];
+    
+    for (let key of Object.keys(this.data)) {
       rows.push(this.jsonToArray(this.data[key]));
     }
-    console.log(rows);
+
     var doc = new jsPDF();
     doc.autoTable(columns, rows, {
       margin: { top: 20, horizontal: 10, width: 20 },
       columnStyles: {
-        0: { columnWidth: 20 }, 1: { columnWidth: 85 }, 2: { columnWidth: 85 },
+        0: { columnWidth: 15 }, 1: { columnWidth: 15 }, 2: { columnWidth: 55 }, 3: { columnWidth: 100 }
       }
     });
     doc.save('Test.pdf');
@@ -52,29 +78,7 @@ export class PrimeComponent implements OnInit {
     keys.forEach(function (key) {
       result.push(json[key]);
     });
-    return result.splice(1, result.length - 1);
-  }
-
-  printToPdf() {
-
-    //let doc = new jsPDF();
-    let col = ["Details", "Values", "dsflkjdfs"];
-    let rows = [];
-    console.log(JSON.stringify(this.data))
-    // for(let key in this.data){
-    //     let temp = [key, this.data[key]];
-    //     rows.push(temp);
-    // }
-    for (const key of Object.keys(this.data)) {
-      //console.log(this.data[key]);
-      rows.push(this.data[key]);
-    }
-    console.log(rows);
-    // doc.autoTable(col, rows);
-    // doc.save('Test.pdf');
-  }
-  test() {
-    console.log(this.data);
+    return result;
   }
 
   ngOnInit() {
@@ -84,8 +88,8 @@ export class PrimeComponent implements OnInit {
         // console.log(data);
       }, error => console.log(error));
 
-
     this.cols = [
+      { field: 'userId', header: 'User ID', display: true },
       { field: 'id', header: 'id', display: true },
       { field: 'title', header: 'title', display: true },
       { field: 'body', header: 'body', display: true }

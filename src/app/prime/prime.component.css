@@ -42,3 +42,19 @@ th {
   left: 12px;
   font-weight: bold;
 }
+
+.fa-custom {
+  position: absolute; 
+  top: 14px; 
+  right: 12px; 
+  font-size: 1.8em;
+}
+
+.fa-custom-excel {
+  right: 45px;
+}
+.fa-custom:hover {
+  opacity: 0.6;
+  transition-duration: 2s;
+  cursor: pointer; 
+}
