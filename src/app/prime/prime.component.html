@@ -35,7 +35,7 @@
     <ng-template pTemplate="body" let-d let-columns="columns"
       class="paginator-custom">
       <tr>
-        <ng-container *ngFor="let col of columns; let i= index">
+        <ng-container *ngFor="let col of columns; let i = index">
           <td *ngIf="col.display">{{ d[col.field] }}</td>
         </ng-container>
 
