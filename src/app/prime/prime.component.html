@@ -2,7 +2,7 @@
 <!-- <button (click)="generatePdf()">PDF</button>
 <button class="button" (click)="dt.exportCSV()" style="float:left">CSV</button> -->
 <h4>Sortable with pagination...</h4>
-<div>
+<div (click)="test()">
   <p-table #dt [columns]="selectedColumns" [value]="data"
     [(selection)]=selectedItems [paginator]="true" [rows]="10"
     [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple"
@@ -20,7 +20,7 @@
 
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <ng-container *ngFor="let col of columns; let i= index">
+        <ng-container *ngFor="let col of columns; let i = index">
           <th *ngIf="col.display" [pSortableColumn]="col.field"
             [style.position]="relative" [id]="col.field">
             {{ col.header | titlecase }}
