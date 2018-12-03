@@ -16,6 +16,7 @@ export class PrimeComponent implements OnInit {
   public sortField: string;
   public sortOrder: number;
   public selectedColumns: any[];
+  public selectedItem: any; 
 
   constructor(public dataService: DataService) { }
 
@@ -28,9 +29,8 @@ export class PrimeComponent implements OnInit {
     this.sortField = sortBy;
   }
 
-  test() {
-    console.log(this.selectedColumns);
-    console.log(this.data);
+  setSelectedItem(data) {
+    this.selectedItem = data;
   }
 
   generatePdf() {

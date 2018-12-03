@@ -20,6 +20,7 @@
 
     <ng-template pTemplate="header" let-columns>
       <tr>
+        <th style="width: 3em"></th>
         <ng-container *ngFor="let col of columns; let i = index">
           <th *ngIf="col.display" [pSortableColumn]="col.field"
             [style.position]="relative" [id]="col.field">
@@ -35,10 +36,12 @@
     <ng-template pTemplate="body" let-d let-columns="columns"
       class="paginator-custom">
       <tr>
+        <td>
+            <p-tableRadioButton (click)="setSelectedItem(d)" [value]="d"></p-tableRadioButton>
+        </td>
         <ng-container *ngFor="let col of columns; let i = index">
           <td *ngIf="col.display">{{ d[col.field] }}</td>
         </ng-container>
-
       </tr>
       <div class="bottom-select">
         <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
@@ -49,7 +52,10 @@
   </p-table>
 </div>
 
-
+<div *ngIf="selectedItem">
+  <h4>Selected Item: </h4>
+  {{ selectedItem | json }}
+</div>
 
 
 
