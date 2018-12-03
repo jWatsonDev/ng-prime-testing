@@ -34,3 +34,22 @@ body .ui-table .ui-table-tbody > tr:nth-of-type(odd) {
 body .ui-table .ui-table-tbody > tr:hover {
     background: #D5EAEE !important;
 }
+
+body .ui-paginator .ui-paginator-pages {
+    /* display: none !important;  */
+}   
+
+.ui-paginator {
+    position: relative !important; 
+}
+
+body .ui-paginator .pi-caret-down::after {
+    position: absolute; 
+    top: 0;
+    left: -70px; 
+    font-size: 12px;
+    width: 300px;
+    cursor: auto;
+    color: #000;
+    content: " items per page " !important;
+}

@@ -1,12 +1,12 @@
+<!-- Pagination: https://github.com/primefaces/primeng/blob/master/src/app/components/paginator/paginator.ts -->
+
 <h3>PrimeNG Turbo Table</h3>
-<!-- <button (click)="generatePdf()">PDF</button>
-<button class="button" (click)="dt.exportCSV()" style="float:left">CSV</button> -->
 <h4>Sortable with pagination...</h4>
-<div (click)="test()">
+<div>
   <p-table #dt [columns]="selectedColumns" [value]="data"
     [(selection)]=selectedItems [paginator]="true" [rows]="10"
     [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple"
-    [metaKeySelection]="false">
+    [metaKeySelection]="false" [rowsPerPageOptions]="[10,20,30]">
 
     <ng-template pTemplate="caption">
       <div style="text-align:left">
@@ -48,6 +48,11 @@
     </ng-template>
   </p-table>
 </div>
+
+
+
+
+
 
 <h4>Another...not sorted...</h4>
 <p-table [value]="data" [paginator]="true" [rows]="10">
