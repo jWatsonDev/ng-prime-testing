@@ -2,7 +2,7 @@
 
 <h3>PrimeNG Turbo Table</h3>
 <h4>Sortable with pagination...</h4>
-<div>
+<div id="turbo-table">
   <p-table #dt [columns]="selectedColumns" [value]="data"
     [(selection)]=selectedItems [paginator]="true" [rows]="10"
     [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple"
@@ -12,6 +12,11 @@
       <div style="text-align:left">
         <i class="fa fa-file-excel-o fa-custom fa-custom-excel" aria-hidden="true" (click)="dt.exportCSV()"></i>
         <i class="fa fa-file-pdf-o fa-custom" aria-hidden="true" (click)="generatePdf()"></i>
+        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+          optionLabel="header" selectedItemsLabel="{0} columns selected"
+          [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
+      </div>
+      <div class="bottom-select">
         <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
           optionLabel="header" selectedItemsLabel="{0} columns selected"
           [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
@@ -43,11 +48,9 @@
           <td *ngIf="col.display">{{ d[col.field] }}</td>
         </ng-container>
       </tr>
-      <div class="bottom-select">
-        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
-          optionLabel="header" selectedItemsLabel="{0} columns selected"
-          [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
-      </div>
+      
+
+
     </ng-template>
   </p-table>
 </div>
@@ -59,7 +62,7 @@
 
 
 
-
+<!-- 
 <h4>Another...not sorted...</h4>
 <p-table [value]="data" [paginator]="true" [rows]="10">
   <ng-template pTemplate="header">
@@ -105,4 +108,4 @@
   <p-header> Header content here </p-header>
   Body Content
   <p-footer> Footer content here </p-footer>
-</p-panel>
+</p-panel> -->

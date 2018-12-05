@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
 import * as jsPDF from 'jspdf'
 
@@ -7,7 +7,8 @@ declare var jsPDF: any;
 @Component({
   selector: 'app-prime',
   templateUrl: './prime.component.html',
-  styleUrls: ['./prime.component.css']
+  styleUrls: ['./prime.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class PrimeComponent implements OnInit {
   public data: any[];
