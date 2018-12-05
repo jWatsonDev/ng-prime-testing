@@ -32,7 +32,7 @@
             {{ col.header | titlecase }}
             <p-sortIcon [field]="col.field"></p-sortIcon>
 
-            <app-custom-drop [showCol]="showColumn" (notify)="onNotify($event,
+            <app-custom-drop (notify)="onNotify($event,
               i)" (sortNotify)="onSortNotify($event, col.field)"></app-custom-drop>
           </th>
         </ng-container>

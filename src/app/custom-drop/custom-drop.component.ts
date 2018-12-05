@@ -8,8 +8,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CustomDropComponent implements OnInit {
   // https://stackoverflow.com/questions/37446644/how-can-i-set-the-default-sort-order-on-the-primeng-datatable
   @Input() showDropDown: boolean;
-  @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Input() showCol = true;
   @Output() sortNotify: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
@@ -19,11 +17,6 @@ export class CustomDropComponent implements OnInit {
 
   toggleDropdown(e): void {
     this.showDropDown = !this.showDropDown;
-    e.stopPropagation();
-  }
-
-  hideColumn(e: Event): void {
-    this.notify.emit(false);
     e.stopPropagation();
   }
 
