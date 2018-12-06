@@ -1,7 +1,8 @@
+/* allow #turbo-table to be used as container */
+#turbo-table { position: relative; }
+
 /* sets primeng column header to same color as the theme */
-#turbo-table .ui-table .ui-sortable-column.ui-state-highlight {
-  background-color: #F3F3F3;
-}
+#turbo-table .ui-table .ui-sortable-column.ui-state-highlight { background-color: #F3F3F3; }
 
 /* sets active carot sort character color */
 #turbo-table .ui-table .ui-sortable-column.ui-state-highlight a,
@@ -36,16 +37,19 @@
 }
 
 /* paginator: items per page */
-#turbo-table .ui-paginator .pi-caret-down::after {
-  top: 0;
-  left: -70px;
-  font-size: 12px;
-  width: 300px;
-  cursor: auto;
-  color: #000;
-  content: ' items per page ';
+#turbo-table .items-per-page {
+  width: 130px; 
+  position: absolute; 
+  text-align: center; 
+  left: 50%; 
+  margin-left: 175px;
+  bottom: 22px; 
 }
 
-#turbo-table .ui-table .ui-table-thead>tr>th {
+/* relative positioning to provide container for custom-dropdown */
+#turbo-table .ui-table .ui-table-thead > tr > th {
   position: relative;
 }
+
+/* pointer cursor for custom dropwdown */
+.angle-custom[_ngcontent-c4] { cursor: pointer; }
