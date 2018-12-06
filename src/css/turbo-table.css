@@ -1,8 +1,22 @@
+#product-list .ui-fieldset .ui-fieldset-legend a {
+  color: rgb(18, 154, 245);
+  font-weight: bold;
+  background-color: white;
+}
+
+#product-list .ui-fieldset-toggler {
+  color: black;
+}
+
 /* allow #turbo-table to be used as container */
-#turbo-table { position: relative; }
+#turbo-table {
+  position: relative;
+}
 
 /* sets primeng column header to same color as the theme */
-#turbo-table .ui-table .ui-sortable-column.ui-state-highlight { background-color: #F3F3F3; }
+#turbo-table .ui-table .ui-sortable-column.ui-state-highlight {
+  background-color: #F3F3F3;
+}
 
 /* sets active carot sort character color */
 #turbo-table .ui-table .ui-sortable-column.ui-state-highlight a,
@@ -38,18 +52,20 @@
 
 /* paginator: items per page */
 #turbo-table .items-per-page {
-  width: 130px; 
-  position: absolute; 
-  text-align: center; 
-  left: 50%; 
+  width: 130px;
+  position: absolute;
+  text-align: center;
+  left: 50%;
   margin-left: 175px;
-  bottom: 22px; 
+  bottom: 22px;
 }
 
 /* relative positioning to provide container for custom-dropdown */
-#turbo-table .ui-table .ui-table-thead > tr > th {
+#turbo-table .ui-table .ui-table-thead>tr>th {
   position: relative;
 }
 
 /* pointer cursor for custom dropwdown */
-.angle-custom[_ngcontent-c4] { cursor: pointer; }
+.angle-custom[_ngcontent-c4] {
+  cursor: pointer;
+}
