@@ -1,35 +1,51 @@
 /* sets primeng column header to same color as the theme */
-#turbo-table .ui-table .ui-sortable-column.ui-state-highlight { background-color: #F3F3F3; }
+#turbo-table .ui-table .ui-sortable-column.ui-state-highlight {
+  background-color: #F3F3F3;
+}
 
 /* sets active carot sort character color */
-#turbo-table .ui-table .ui-sortable-column.ui-state-highlight a, #turbo-table .ui-table .ui-sortable-column.ui-state-highlight a:hover { color: #848484; }
+#turbo-table .ui-table .ui-sortable-column.ui-state-highlight a,
+#turbo-table .ui-table .ui-sortable-column.ui-state-highlight a:hover {
+  color: #848484;
+}
 
 /* turbo table main color */
-#turbo-table .ui-table .ui-table-tbody > tr,
-#turbo-table .ui-table .ui-table-thead > tr > th,
+#turbo-table .ui-table .ui-table-tbody>tr,
+#turbo-table .ui-table .ui-table-thead>tr>th,
 #turbo-table .ui-multiselect .ui-multiselect-label,
 #turbo-table .ui-table .ui-sortable-column.ui-state-highlight {
-    color: #2c3e50;
+  color: #2c3e50;
 }
 
 /* set odd/even/hover table row backbround color */
-#turbo-table .ui-table .ui-table-tbody > tr:nth-of-type(even) { background: #F3F3F3; }
-#turbo-table .ui-table .ui-table-tbody > tr:nth-of-type(odd) { background: #FDFDFD; }
-#turbo-table .ui-table .ui-table-tbody > tr:hover { background: #D5EAEE; } 
+#turbo-table .ui-table .ui-table-tbody>tr:nth-of-type(even) {
+  background: #F3F3F3;
+}
+
+#turbo-table .ui-table .ui-table-tbody>tr:nth-of-type(odd) {
+  background: #FDFDFD;
+}
+
+#turbo-table .ui-table .ui-table-tbody>tr:hover {
+  background: #D5EAEE;
+}
 
 /* add vertical spacing around paginator*/
-#turbo-table .ui-table .ui-paginator-bottom { padding: 15px 0; }
+#turbo-table .ui-table .ui-paginator-bottom {
+  padding: 15px 0;
+}
 
 /* paginator: items per page */
 #turbo-table .ui-paginator .pi-caret-down::after {
-    position: absolute; 
-    top: 0;
-    left: -70px; 
-    font-size: 12px;
-    width: 300px;
-    cursor: auto;
-    color: #000;
-    content: ' items per page ';
+  top: 0;
+  left: -70px;
+  font-size: 12px;
+  width: 300px;
+  cursor: auto;
+  color: #000;
+  content: ' items per page ';
 }
 
-#turbo-table .ui-table .ui-table-thead > tr > th { position: relative; }
+#turbo-table .ui-table .ui-table-thead>tr>th {
+  position: relative;
+}

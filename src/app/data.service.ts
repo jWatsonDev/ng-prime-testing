@@ -15,5 +15,4 @@ export class DataService {
   getData(): Observable<any[]> {
     return this._http.get<any[]>(this._dataUrl).pipe();
   }
-
 }
