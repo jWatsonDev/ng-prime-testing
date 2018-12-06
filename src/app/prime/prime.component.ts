@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
-import * as jsPDF from 'jspdf'
+import * as jsPDF from 'jspdf';
 
 declare var jsPDF: any;
 

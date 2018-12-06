@@ -15,6 +15,7 @@ import { TableModule } from "primeng/table";
 import { CustomDropComponent } from "./custom-drop/custom-drop.component";
 import { CommonModule } from "@angular/common";
 import { MultiSelectModule } from "primeng/primeng";
+import { FieldsetModule } from "primeng/fieldset";
 
 @NgModule({
   declarations: [AppComponent, PrimeComponent, CustomDropComponent],
@@ -31,7 +32,8 @@ import { MultiSelectModule } from "primeng/primeng";
     PanelModule,
     PaginatorModule,
     TableModule,
-    MultiSelectModule
+    MultiSelectModule,
+    FieldsetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
