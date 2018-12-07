@@ -1,11 +1,29 @@
+/* font styling for product-list fieldset string(s) */
 #product-list .ui-fieldset .ui-fieldset-legend a {
   color: rgb(18, 154, 245);
   font-weight: bold;
   background-color: white;
 }
 
+/* color of fieldset toggler icon */
 #product-list .ui-fieldset-toggler {
   color: black;
+}
+
+/* change the icon within fieldset toggler - right arrow (click to expand) using
+css character entites
+http://webdesignnomad.com/snippets/html-css-character-entities/
+*/
+.pi-plus:before {
+  content: "\25BA";
+}
+
+/* change the icon within fieldset toggler - down arrow on click (click to detract) using
+CSS character enties
+http://webdesignnomad.com/snippets/html-css-character-entities/
+*/
+.pi-minus:before {
+  content: "\25BC";
 }
 
 /* allow #turbo-table to be used as container */

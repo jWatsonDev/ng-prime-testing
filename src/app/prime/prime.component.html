@@ -1,23 +1,24 @@
-<!-- Pagination: https://github.com/primefaces/primeng/blob/master/src/app/components/paginator/paginator.ts -->
+<!--
+  Pagination: https://github.com/primefaces/primeng/blob/master/src/app/components/paginator/paginator.ts
+-->
 
 <h3>PrimeNG Turbo Table</h3>
 <h4>Sortable with pagination...</h4>
 <p-fieldset id="product-list" legend="Product List" [toggleable]="true">
   <div id="turbo-table">
-    <p-table #dt [columns]="selectedColumns" [value]="data" [(selection)]=selectedItems [paginator]="true" [rows]="10"
+    <p-table #dt [columns]="selectedColumns" [value]="data" [(selection)]="selectedItems" [paginator]="true" [rows]="10"
       [sortField]="sortField" [sortOrder]="sortOrder" selectionMode="multiple" [metaKeySelection]="false"
-      [rowsPerPageOptions]="[10,20,30]">
-
+      [rowsPerPageOptions]="[10, 20, 30]">
       <ng-template pTemplate="caption">
         <div style="text-align:left">
           <i class="fa fa-file-excel-o fa-custom fa-custom-excel" aria-hidden="true" (click)="dt.exportCSV()"></i>
           <i class="fa fa-file-pdf-o fa-custom" aria-hidden="true" (click)="generatePdf()"></i>
           <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected"
-            [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
+            [style]="{ minWidth: '200px' }" defaultLabel="Choose Columns"></p-multiSelect>
         </div>
         <div class="bottom-select">
           <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" selectedItemsLabel="{0} columns selected"
-            [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
+            [style]="{ minWidth: '200px' }" defaultLabel="Choose Columns"></p-multiSelect>
         </div>
       </ng-template>
 
@@ -25,16 +26,20 @@
         <tr>
           <th style="width: 4em"></th>
           <ng-container *ngFor="let col of columns; let i = index">
-
             <th *ngIf="col.display" [style.position]="relative" [id]="col.field">
               {{ col.header | titlecase }}
 
               <p-sortIcon [field]="col.field" [pSortableColumn]="col.field"></p-sortIcon>
 
-              <input pInputText type="text" pInputText size="30" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode='contains')">
+              <input pInputText type="text" pInputText size="30" (input)="
+                  dt.filter(
+                    $event.target.value,
+                    col.field,
+                    (col.filterMatchMode = 'contains')
+                  )
+                " />
 
-              <app-custom-drop (notify)="onNotify($event,
-              i)" (sortNotify)="onSortNotify($event, col.field)"></app-custom-drop>
+              <app-custom-drop (notify)="onNotify($event, i)" (sortNotify)="onSortNotify($event, col.field)"></app-custom-drop>
             </th>
           </ng-container>
         </tr>
@@ -48,9 +53,6 @@
             <td *ngIf="col.display">{{ d[col.field] }}</td>
           </ng-container>
         </tr>
-
-
-
       </ng-template>
     </p-table>
     <div class="items-per-page">
@@ -58,59 +60,56 @@
     </div>
   </div>
 </p-fieldset>
-
-
 <div *ngIf="selectedItem">
-  <h4>Selected Item: </h4>
+  <h4>Selected Item:</h4>
   {{ selectedItem | json }}
 </div>
 
-
-
 <!--
-<h4>Another...not sorted...</h4>
-<p-table [value]="data" [paginator]="true" [rows]="10">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Description</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-d>
-    <tr>
-      <td>{{ d.id }}</td>
-      <td>{{ d.title }}</td>
-      <td>
-        <small>{{ d.body }}</small>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+  <h4>Another...not sorted...</h4>
+  <p-table [value]="data" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-d>
+      <tr>
+        <td>{{ d.id }}</td>
+        <td>{{ d.title }}</td>
+        <td>
+          <small>{{ d.body }}</small>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 
-<hr />
-<h3>Paginator</h3>
-<p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
+  <hr />
+  <h3>Paginator</h3>
+  <p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
 
-<hr />
-<h3>Accordion</h3>
-<p-accordion>
-  <p-accordionTab header="Header 1" [selected]="true">
-    Content 1
-  </p-accordionTab>
-  <p-accordionTab header="Header 2"> Content 2 </p-accordionTab>
-  <p-accordionTab header="Header 3"> Content 3 </p-accordionTab>
-</p-accordion>
+  <hr />
+  <h3>Accordion</h3>
+  <p-accordion>
+    <p-accordionTab header="Header 1" [selected]="true">
+      Content 1
+    </p-accordionTab>
+    <p-accordionTab header="Header 2"> Content 2 </p-accordionTab>
+    <p-accordionTab header="Header 3"> Content 3 </p-accordionTab>
+  </p-accordion>
 
-<hr />
-<h3>Buttons</h3>
-<button pButton type="button" icon="pi pi-check" iconPos="left"></button>
-<p-button label="Click" icon="fa fa-check" iconPos="left"></p-button>
+  <hr />
+  <h3>Buttons</h3>
+  <button pButton type="button" icon="pi pi-check" iconPos="left"></button>
+  <p-button label="Click" icon="fa fa-check" iconPos="left"></p-button>
 
-<hr />
-<h3>Panel</h3>
-<p-panel [toggleable]="true" [transitionOptions]="'500ms'">
-  <p-header> Header content here </p-header>
-  Body Content
-  <p-footer> Footer content here </p-footer>
-</p-panel> -->
+  <hr />
+  <h3>Panel</h3>
+  <p-panel [toggleable]="true" [transitionOptions]="'500ms'">
+    <p-header> Header content here </p-header>
+    Body Content
+    <p-footer> Footer content here </p-footer>
+  </p-panel>
+-->
