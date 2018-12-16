@@ -1,17 +1,16 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import * as jsPDF from 'jspdf';
 
 declare var jsPDF: any;
 
 @Component({
-  selector: 'app-prime',
-  templateUrl: './prime.component.html',
-  styleUrls: ['./prime.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  selector: 'app-child-prime',
+  templateUrl: './child-prime.component.html',
+  styleUrls: ['./child-prime.component.css']
 })
-export class PrimeComponent implements OnInit {
-  public data: any[];
+
+export class ChildPrimeComponent implements OnInit {
+  @Input() public data: any[];
   public cols: any[];
   public selectedItems: any[];
   public sortField: string;
@@ -19,7 +18,7 @@ export class PrimeComponent implements OnInit {
   public selectedColumns: any[];
   public selectedItem: any; 
 
-  constructor(private dataService: DataService) { }
+  constructor() { }
 
   onNotify(hideCol: boolean, idx: number) {
     this.cols[idx].display = hideCol;
@@ -87,11 +86,6 @@ export class PrimeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getData()
-      .subscribe(data => {
-        this.data = data;
-        // console.log(data);
-      }, error => console.log(error));
 
     this.cols = [
       { field: 'userId', header: 'User ID', display: true },

@@ -16,9 +16,11 @@ import { CustomDropComponent } from "./custom-drop/custom-drop.component";
 import { CommonModule } from "@angular/common";
 import { MultiSelectModule } from "primeng/primeng";
 import { FieldsetModule } from "primeng/fieldset";
+import { ParentPrimeComponent } from './parent-prime/parent-prime.component';
+import { ChildPrimeComponent } from './parent-prime/child-prime/child-prime.component';
 
 @NgModule({
-  declarations: [AppComponent, PrimeComponent, CustomDropComponent],
+  declarations: [AppComponent, PrimeComponent, CustomDropComponent, ParentPrimeComponent, ChildPrimeComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
